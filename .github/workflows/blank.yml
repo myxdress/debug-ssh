@@ -1,0 +1,17 @@
+---
+name: Dispatch a SSH session
+
+on:
+  workflow_dispatch:
+
+jobs:
+  start_ssh_session:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Start SSH session
+      uses: ./
+      with:
+        SSH_PASS: ${{ secrets.SSH_PASS }}
